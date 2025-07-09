@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <label class="dark-toggle">
+      <input type="checkbox" id="darkModeToggle" />
+      <span>Dark Mode</span>
+    </label>
+
+    <!-- Step 1 -->
+    <form id="registrationForm" class="form-step active">
+      <h2><i class="fa-solid fa-user-plus"></i> Step 1: Personal Info</h2>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-user"></i> Username:</label>
+        <input type="text" id="username" title="Minimum 3 characters" />
+        <small>Error message</small>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-envelope"></i> Email:</label>
+        <input type="email" id="email" title="Enter a valid email address" />
+        <small>Error message</small>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-phone"></i> Phone Number:</label>
+        <input type="tel" id="phone" title="10–15 digits" />
+        <small>Error message</small>
+      </div>
+
+      <button type="button" id="nextBtn">Next</button>
+    </form>
+
+    <!-- Step 2 -->
+    <form id="securityForm" class="form-step">
+      <h2><i class="fa-solid fa-shield-halved"></i> Step 2: Security Info</h2>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-lock"></i> Password:</label>
+        <input type="password" id="password" title="Min 6 characters" />
+        <meter max="100" value="0" id="strengthMeter"></meter>
+        <small>Error message</small>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-check-circle"></i> Confirm Password:</label>
+        <input type="password" id="confirmPassword" />
+        <small>Error message</small>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" />
+        <label for="terms"></i>I agree to the Terms and Conditions</label>
+        <small>Error message</small>
+      </div>
+
+      <div class="form-group">
+        <label><i class="fa-solid fa-robot"></i> What is 2 + 3?</label>
+        <input type="text" id="captcha" />
+        <small>Error message</small>
+      </div>
+
+      <button type="button" id="backBtn">Back</button>
+      <button type="submit" id="registerBtn">Register</button>
+      <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <div id="modalOverlay" class="modal-overlay">
+
+      <!-- Toast -->
+      <div id="toast" class="toast">Registration complete!</div>
+
+      <!-- Modal -->
+      <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-box">
+          <h3>🎉 Success!</h3>
+          <p>Your registration was successful.</p>
+          <button id="closeModalBtn">OK</button>
+        </div>
+      </div>
+
+      <!-- Fake Confirmation -->
+      <div id="confirmationScreen" class="form-step">
+        <h2>📩 Confirmation Sent</h2>
+        <p>Check your email inbox for an activation link.</p>
+      </div>
+
+      <div id="successMessage">Registration successful!</div>
+    </div>
+
+    <div id="toast" class="toast">Registration complete!</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

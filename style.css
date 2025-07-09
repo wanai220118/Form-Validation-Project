@@ -1,0 +1,288 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Container */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  transition: background 0.3s ease, color 0.3s ease;
+  padding: 20px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: -300px;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: right 0.5s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  right: 30px;
+}
+
+body.dark .toast {
+  background-color: #36c977;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.modal-box button {
+  margin-top: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+body.dark .modal-box {
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark .container {
+  background-color: #2a2a2a;
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+body.dark input,
+body.dark button,
+body.dark meter {
+  background-color: #3c3c3c;
+  color: white;
+  border: 1px solid #666;
+}
+
+body.dark input:focus {
+  border-color: #66aaff;
+}
+
+body.dark button {
+  background-color: #444;
+}
+
+body.dark small {
+  color: #ff8c8c;
+}
+
+/* Dark mode toggle */
+.dark-toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* Form steps */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+/* Form Elements */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  position: relative;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+input.success {
+  border-color: green;
+}
+
+input.error {
+  border-color: red;
+}
+
+small {
+  color: red;
+  visibility: hidden;
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  font-size: 0.75rem;
+}
+
+/* Password Strength Meter */
+meter {
+  width: 100%;
+  height: 10px;
+  margin-top: 6px;
+}
+
+/* Checkbox group */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Success Message */
+#successMessage {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  margin-top: 15px;
+  display: none;
+}
+
+/* Fake Confirmation */
+#confirmationScreen {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.form-step {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.form-step.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-step.fade-out {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.progress-container {
+  background: #eee;
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 50%;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
